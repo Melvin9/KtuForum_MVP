@@ -8,4 +8,12 @@
     <string name="ask_answer">Ask/Answer</string>
     <string name="view_questions">View-Questions</string>
     <string name="profile">Profile</string>
+    <string name="background">Background</string>
+    <string name="pr">Private</string>
+    <string name="pu">Public</string>
+    <string name="points">Points</string>
+    <string name="_0">0</string>
+    <string name="rank">Rank</string>
+    <string name="top_10">Top 10</string>
+    <string name="zero">0</string>
 </resources>
