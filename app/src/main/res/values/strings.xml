@@ -5,4 +5,7 @@
     <string name="login">LOGIN</string>
     <string name="signup">SIGNUP</string>
     <string name="background_image">Background Image</string>
+    <string name="ask_answer">Ask/Answer</string>
+    <string name="view_questions">View-Questions</string>
+    <string name="profile">Profile</string>
 </resources>

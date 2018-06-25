@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/ask_answer"
+        android:color="@android:color/holo_green_light"
+        android:icon="@mipmap/ic_library_books_black_18dp"
+          android:id="@+id/ask"
+        />
+    <item android:title="@string/view_questions"
+        android:color="@android:color/holo_orange_light"
+        android:icon="@mipmap/ic_book_black_24dp"
+        android:id="@+id/view"
+        />
+    <item android:title="@string/profile"
+        android:color="@android:color/holo_blue_light"
+        android:icon="@mipmap/ic_perm_identity_black_18dp"
+        android:id="@+id/profile"
+        />
+</menu>
