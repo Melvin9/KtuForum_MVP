@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ktu-Forum</string>
+    <string name="username">UserName</string>
+    <string name="password">password</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGNUP</string>
+    <string name="background_image">Background Image</string>
+</resources>
