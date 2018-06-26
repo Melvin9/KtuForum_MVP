@@ -13,7 +13,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenter;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenterImpl;
-import com.ktu.dev.melvin.ktu_forum.MainActivity;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.MainActivity;
 import com.ktu.dev.melvin.ktu_forum.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {

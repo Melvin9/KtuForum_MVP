@@ -16,4 +16,27 @@
     <string name="rank">Rank</string>
     <string name="top_10">Top 10</string>
     <string name="zero">0</string>
+    <string name="available_teachers">Available Teachers</string>
+    <string name="loading">Loading...</string>
+    <string name="question">Question:</string>
+    <string name="ask_your_question">ask your Question</string>
+    <string name="image_button_send">Image Button Send</string>
+    <string name="teacher_id">Teacher_id</string>
+    <string name="teacher_name">Teacher_name</string>
+    <string name="userid_qn">UserID-qn</string>
+    <string name="userid_answer">UserID-answer</string>
+    <string name="answer">answer</string>
+    <string name="ask_questions">Ask Questions</string>
+    <string name="your_questions">Your Questions</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_ask">Ask</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="ask_private">Ask Private</string>
+    <string name="ask_public">Ask Public</string>
 </resources>

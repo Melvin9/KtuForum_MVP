@@ -16,11 +16,11 @@
         app:srcCompat="@drawable/bg_for_fragments"
         android:contentDescription="@string/background_image" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 
 </RelativeLayout>
