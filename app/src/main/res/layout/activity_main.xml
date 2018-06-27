@@ -6,43 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainScreen.MainActivity"
     >
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:id="@+id/linearLayout"
-       android:layout_alignParentTop="true"
-       android:background="@color/orange"
-       android:weightSum="3">
-       <Button
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"
-           android:id="@+id/privateBtn"
-           android:text="@string/ask_private"
-           android:background="@drawable/bbn_top_shadow"
-           />
-       <Button
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:text="LOGO"
-          />
-       <Button
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:text="@string/ask_public"
-           android:id="@+id/publicBtn"
-           android:layout_weight="1"
-           android:background="@drawable/bbn_top_shadow"
-           />
-
-   </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frameLayout"
-        android:layout_below="@+id/linearLayout"
         android:layout_above="@+id/BottomNavigation" />
 
     <it.sephiroth.android.library.bottomnavigation.BottomNavigation

@@ -13,7 +13,7 @@ import com.ktu.dev.melvin.ktu_forum.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AskPrivateFragment extends Fragment{
+public class AskPrivateFragment extends Fragment {
 
 
     public AskPrivateFragment() {
@@ -25,7 +25,7 @@ public class AskPrivateFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ask_private, container, false);
+        return inflater.inflate(R.layout.fragment_ask_private2, container, false);
     }
 
 }

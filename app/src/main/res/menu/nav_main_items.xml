@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- Search / will display always -->
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
+
+    <!-- Ask Private -->
+    <item android:id="@+id/action_ask_private"
+        android:icon="@drawable/askprivate"
+        android:title="@string/ask_private"
+        app:showAsAction="always" />
+    <!-- Ask Public -->
+    <item android:id="@+id/action_ask_public"
+        android:icon="@drawable/askpublic"
+        android:title="@string/ask_public"
+        app:showAsAction="always" />
+
+    <!-- Refresh -->
+    <item android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_cached_black_24dp"
+        android:title="@string/action_refresh"
+        app:showAsAction="ifRoom" />
+
+    <!-- Help -->
+    <item android:id="@+id/action_help"
+        android:icon="@drawable/ic_help_black_24dp"
+        android:title="@string/help"
+        app:showAsAction="never" />
+
+    <!-- Check updates -->
+    <item android:id="@+id/action_check_updates"
+        android:icon="@drawable/ic_cached_black_24dp"
+        android:title="@string/action_check_updates"
+        app:showAsAction="never" />
+</menu>

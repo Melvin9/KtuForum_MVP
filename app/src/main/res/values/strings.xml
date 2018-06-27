@@ -39,4 +39,9 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="ask_private">Ask Private</string>
     <string name="ask_public">Ask Public</string>
+    <string name="logo">LOGO</string>
+    <string name="search">Search</string>
+    <string name="help">Help</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_check_updates">Check For Update</string>
 </resources>
