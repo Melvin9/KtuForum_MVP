@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenter;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenterImpl;
 import com.ktu.dev.melvin.ktu_forum.MainScreen.MainActivity;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.ViewAnswerFragment;
 import com.ktu.dev.melvin.ktu_forum.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void success() {
         Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
+        ViewAnswerFragment.user_id=userid.getText().toString();
         try {
             Intent i1 = new Intent(LoginActivity.this, MainActivity.class);
             i1.putExtra("us", userid.getText().toString());
