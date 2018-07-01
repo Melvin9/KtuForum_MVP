@@ -23,7 +23,6 @@ public class LoginPresenterImpl implements LoginPresenter,LoginModel.validate{
     public void onDestroy() {
 
     }
-
     @Override
     public void onSuccess() {
         loginView.success();
