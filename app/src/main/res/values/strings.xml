@@ -42,5 +42,9 @@
     <string name="help">Help</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_check_updates">Check For Update</string>
+    <string name="name">Name</string>
+    <string name="point">Points :</string>
+    <string name="points1">Points</string>
+    <string name="rank1">Rank :</string>
 
 </resources>
