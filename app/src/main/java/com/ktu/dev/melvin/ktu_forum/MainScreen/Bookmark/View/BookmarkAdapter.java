@@ -22,7 +22,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
     private List<BookmarkData> listitems;
     private Context context;
 
-    public BookmarkAdapter(List<BookmarkData> listitems, Context context) {
+    BookmarkAdapter(List<BookmarkData> listitems, Context context) {
         this.listitems = listitems;
         this.context = context;
     }

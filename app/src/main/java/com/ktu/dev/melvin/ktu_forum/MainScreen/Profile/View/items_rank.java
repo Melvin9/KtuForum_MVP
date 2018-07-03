@@ -19,7 +19,7 @@ public class items_rank {
         return point;
     }
 
-    public items_rank(String name, String rank, String point) {
+    items_rank(String name, String rank, String point) {
         this.name = name;
         this.rank = rank;
         this.point = point;

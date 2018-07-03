@@ -7,6 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 public class LoginModelImpl implements LoginModel {
 private boolean u=true,pa=true,p=true;
 
@@ -46,5 +47,12 @@ private boolean u=true,pa=true,p=true;
             }
         });
        listener.volley(stringRequest);
+    }
+
+    @Override
+    public void validate_signup(final String Username, String Password,final validate listener) {
+        if (Username.isEmpty() || Password.isEmpty())
+            listener.showToast("Ensure All details are Correct");
+        else listener.showALert();
     }
 }

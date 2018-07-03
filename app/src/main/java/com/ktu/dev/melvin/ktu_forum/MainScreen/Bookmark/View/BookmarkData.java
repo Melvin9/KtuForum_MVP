@@ -26,7 +26,7 @@ public class BookmarkData {
     public String getAns_id() {
         return ans_id;
     }
-    public BookmarkData(String question, String answer, String qn_id, String ans_id) {
+    BookmarkData(String question, String answer, String qn_id, String ans_id) {
         this.question = question;
         this.answer = answer;
         this.qn_id = qn_id;

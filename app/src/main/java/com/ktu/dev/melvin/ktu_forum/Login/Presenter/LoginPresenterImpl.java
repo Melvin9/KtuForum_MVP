@@ -15,44 +15,37 @@ public class LoginPresenterImpl implements LoginPresenter,LoginModel.validate{
     }
 
     @Override
-    public void mlogin(String Username, String Password) {
-        loginModel.validate_login(Username,Password,this);
-    }
-
+    public void mlogin(String Username, String Password) { loginModel.validate_login(Username,Password,this); }
     @Override
-    public void onDestroy() {
-
-    }
+    public void msignup(String UserName, String Password) { loginModel.validate_signup(UserName,Password,this); }
+    @Override
+    public void onDestroy() { }
     @Override
     public void onSuccess() {
         loginView.success();
     }
-
     @Override
     public void onUsernameError() {
         loginView.usernameError();
     }
-
     @Override
     public void onPasswordError() {
         loginView.passwordError();
     }
-
     @Override
     public void showDialog() {
         loginView.showDialog();
     }
-
     @Override
     public void hideDialog() {
         loginView.hideDialog();
     }
-
+    @Override
+    public void showALert() { loginView.showAlert(); }
     @Override
     public void showToast(String Message) {
         loginView.toast(Message);
     }
-
     @Override
     public void volley(StringRequest stringRequest) {
         loginView.volley(stringRequest);

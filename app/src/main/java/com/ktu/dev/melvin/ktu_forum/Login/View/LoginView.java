@@ -4,6 +4,7 @@ import com.android.volley.toolbox.StringRequest;
 
 public interface LoginView {
 void success();
+void showAlert();
 void showDialog();
 void hideDialog();
 void usernameError();

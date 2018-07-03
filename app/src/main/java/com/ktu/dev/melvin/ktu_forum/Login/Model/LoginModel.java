@@ -9,8 +9,10 @@ interface validate{
     void onPasswordError();
     void showDialog();
     void hideDialog();
+    void showALert();
     void showToast(String Message);
     void volley(StringRequest stringRequest);
 }
 void validate_login(String Username,String Password,validate listener);
+void validate_signup(String Username,String Password,validate listener);
 }

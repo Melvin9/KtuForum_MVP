@@ -20,7 +20,7 @@ public class rank_adapter extends RecyclerView.Adapter<rank_adapter.ViewHolder> 
     private Context context;
     private List<items_rank> list;
 
-    public rank_adapter(Context context, List<items_rank> list) {
+    rank_adapter(Context context, List<items_rank> list) {
         this.context = context;
         this.list = list;
     }
