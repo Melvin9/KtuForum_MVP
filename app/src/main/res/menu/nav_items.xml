@@ -4,18 +4,18 @@
 
 
     <item android:title="@string/view_questions"
-        android:color="#F3E5F5"
+        android:color="#fff"
         android:icon="@mipmap/ic_book_black_24dp"
         android:id="@+id/view"
         />
 
     <item android:title="@string/your_questions"
-        android:color="#E1BEE7"
+        android:color="#fff"
         android:icon="@drawable/ic_bookmark"
         android:id="@+id/bookmark"
         />
     <item android:title="@string/profile"
-        android:color="#CE93D8"
+        android:color="#fff"
         android:icon="@mipmap/ic_perm_identity_black_18dp"
         android:id="@+id/profile"
         />

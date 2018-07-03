@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar=getSupportActionBar();
         assert actionBar != null;
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setTitle("KTU");
+        actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         BottomNavigation bottomNavigation=findViewById(R.id.BottomNavigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new ViewAnswerFragment()).commit();
