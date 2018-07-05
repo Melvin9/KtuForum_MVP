@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -40,6 +43,7 @@ public class AskPublicFragment extends Fragment {
         final View v=inflater.inflate(R.layout.fragment_ask_public,container,false);
         send= v.findViewById(R.id.send);
         question= v.findViewById(R.id.qn);
+        setHasOptionsMenu(true);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,5 +79,31 @@ public class AskPublicFragment extends Fragment {
             }
         });
         return v;
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.nav_profile_items, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_ask_private:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPrivateFragment()).commit();
+                break;
+            case R.id.action_ask_public:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPublicFragment()).commit();
+                break;
+            case R.id.action_help:
+                //help
+                break;
+            case R.id.action_refresh:
+                //refresh
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.ViewAnswerFragment;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.public_data;
 import com.ktu.dev.melvin.ktu_forum.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Melvin on 12/25/2017.
@@ -21,9 +24,12 @@ import java.util.List;
 public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHolder> {
     private List<BookmarkData> listitems;
     private Context context;
+    private List<BookmarkData> listitemsfiltered;
 
     BookmarkAdapter(List<BookmarkData> listitems, Context context) {
-        this.listitems = listitems;
+        this.listitems = new ArrayList<BookmarkData>();
+        this.listitemsfiltered=listitems;
+        this.listitems.addAll(listitemsfiltered);
         this.context = context;
     }
 
@@ -37,7 +43,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BookmarkAdapter.ViewHolder holder, int position) {
-        BookmarkData list=listitems.get(position);
+        BookmarkData list=listitemsfiltered.get(position);
         if(list.getQn_id().equals(ViewAnswerFragment.user_id)){
             holder.qn_user.setText("You asked: ");
             holder.qn.setText(list.getQuestion());
@@ -54,9 +60,22 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return listitems.size();
+        return listitemsfiltered.size();
     }
-
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        listitemsfiltered.clear();
+        if (charText.length() == 0) {
+            listitemsfiltered.addAll(listitems);
+        } else {
+            for (BookmarkData wp : listitems) {
+                if (wp.getAnswer().toLowerCase(Locale.getDefault()).contains(charText)||wp.getQuestion().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    listitemsfiltered.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView qn_user, qn, answer_user,ans;
         BookmarkData feed;

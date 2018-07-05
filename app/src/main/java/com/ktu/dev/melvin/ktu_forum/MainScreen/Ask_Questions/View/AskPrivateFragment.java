@@ -6,7 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -29,7 +33,7 @@ import java.util.List;
  */
 public class AskPrivateFragment extends Fragment {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private teacher_adapter adapter;
     private List<teacher_data> data_main;
     TextView t;
 
@@ -49,6 +53,7 @@ public class AskPrivateFragment extends Fragment {
         data_main=new ArrayList<>();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+        setHasOptionsMenu(true);
         StringRequest stringRequest=new StringRequest(Request.Method.GET, "http://melvinmathew0102.000webhostapp.com/Student_ask_specific.php/", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -77,6 +82,32 @@ public class AskPrivateFragment extends Fragment {
         RequestQueue requestQueue= Volley.newRequestQueue(view.getContext());
         requestQueue.add(stringRequest);
         return view;
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.nav_profile_items, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_ask_private:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPrivateFragment()).commit();
+                break;
+            case R.id.action_ask_public:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPublicFragment()).commit();
+                break;
+            case R.id.action_help:
+                //help
+                break;
+            case R.id.action_refresh:
+                //refresh
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

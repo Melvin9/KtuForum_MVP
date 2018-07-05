@@ -19,6 +19,9 @@
             android:screenOrientation="portrait"
             android:name=".Login.View.LoginActivity"
             tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -31,11 +34,15 @@
             </intent-filter>
         </activity>
         <activity
+
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
             android:parentActivityName=".Login.View.LoginActivity"
             android:name=".MainScreen.MainActivity"
             tools:ignore="InnerclassSeparator" />
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
     </application>
 
 </manifest>

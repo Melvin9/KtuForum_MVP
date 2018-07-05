@@ -7,7 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -17,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPrivateFragment;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPublicFragment;
 import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.ViewAnswerFragment;
 import com.ktu.dev.melvin.ktu_forum.R;
 import org.json.JSONArray;
@@ -28,7 +34,7 @@ import java.util.List;
 public class BookmarkFragment extends Fragment {
     String a;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private BookmarkAdapter adapter;
     private List<BookmarkData> bookmarkData;
     public BookmarkFragment() {
         // Required empty public constructor
@@ -46,6 +52,7 @@ public class BookmarkFragment extends Fragment {
         recyclerView=view.findViewById(R.id.recycler1);
         recyclerView.setHasFixedSize(true);
         loadFromServer(view.getContext());
+        setHasOptionsMenu(true);
         recyclerView.setLayoutManager(layoutManager);
         return view;
     }
@@ -85,5 +92,30 @@ public class BookmarkFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.nav_profile_items, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_ask_private:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPrivateFragment()).commit();
+                break;
+            case R.id.action_ask_public:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPublicFragment()).commit();
+                break;
+            case R.id.action_help:
+                //help
+                break;
+            case R.id.action_refresh:
+                //refresh
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -60,6 +60,7 @@
                     android:drawableStart="@mipmap/ic_perm_identity_black_18dp"
                     android:ems="10"
                     android:hint="@string/username"
+                    android:textColor="@android:color/black"
                     android:inputType="textPersonName"
                     android:drawableLeft="@mipmap/ic_perm_identity_black_18dp"
                     tools:ignore="NestedWeights" />
@@ -72,6 +73,7 @@
                     android:alpha="1"
                     android:drawableStart="@mipmap/ic_info_black_18dp"
                     android:ems="10"
+                    android:textColor="@android:color/black"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:drawableLeft="@mipmap/ic_info_black_18dp" />

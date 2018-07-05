@@ -24,8 +24,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.ViewAnswerFragment;
 import com.ktu.dev.melvin.ktu_forum.R;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -34,23 +37,27 @@ import java.util.Map;
 
 public class teacher_adapter extends RecyclerView.Adapter<teacher_adapter.ViewHolder> {
     private List<teacher_data> listitems;
+    private List<teacher_data> listitemsfiltered;
+
     private Context context;
 
     teacher_adapter(List<teacher_data> listitems, Context context) {
-        this.listitems = listitems;
+        this.listitems = new ArrayList<teacher_data>();
+        this.listitemsfiltered=listitems;
+        this.listitems.addAll(listitemsfiltered);
         this.context = context;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v1= LayoutInflater.from(parent.getContext()).inflate(R.layout.available_teacher_card,parent,false);
-        return new ViewHolder(v1);
+                return new ViewHolder(v1);
     }
 
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        teacher_data list=listitems.get(position);
+        teacher_data list=listitemsfiltered.get(position);
         holder.tid.setText(list.getTid());
         holder.tname.setText(list.getTname());
         holder.feed=list;
@@ -58,9 +65,22 @@ public class teacher_adapter extends RecyclerView.Adapter<teacher_adapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return listitems.size();
+        return listitemsfiltered.size();
     }
-
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        listitemsfiltered.clear();
+        if (charText.length() == 0) {
+            listitemsfiltered.addAll(listitems);
+        } else {
+            for (teacher_data wp : listitems) {
+                if (wp.getTid().toLowerCase(Locale.getDefault()).contains(charText)||wp.getTname().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    listitemsfiltered.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tid,tname;RelativeLayout relativeLayout;
         teacher_data feed;

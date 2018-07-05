@@ -10,7 +10,11 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -21,19 +25,30 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ktu.dev.melvin.ktu_forum.Login.View.LoginActivity;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPrivateFragment;
+import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPublicFragment;
 import com.ktu.dev.melvin.ktu_forum.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ViewAnswerFragment extends Fragment {
+public class ViewAnswerFragment extends Fragment{
     public static String user_id;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
     private List<public_data> data_main;
+    private public_adapter mAdapter;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+
     public ViewAnswerFragment() {
         // Required empty public constructor
     }
@@ -68,8 +83,8 @@ public class ViewAnswerFragment extends Fragment {
                         JSONObject o=jsonArray.getJSONObject(i);
                         public_data data=new public_data(o.getString("Ask_global"),o.getString("ans"),o.getString("UserID"), o.getString("ans_by"),o.getString("verified").toLowerCase());
                         data_main.add(data);
-                        adapter=new public_adapter(data_main,context);
-                        recyclerView.setAdapter(adapter);
+                        mAdapter=new public_adapter(data_main,context);
+                        recyclerView.setAdapter(mAdapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -86,6 +101,47 @@ public class ViewAnswerFragment extends Fragment {
         });
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.nav_main_items, menu);
+        MenuItem item = menu.findItem(R.id.search_questions);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mAdapter.filter(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mAdapter.filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_ask_private:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPrivateFragment()).commit();
+                break;
+            case R.id.action_ask_public:
+                assert getFragmentManager() != null;
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new AskPublicFragment()).commit();
+                break;
+            case R.id.action_help:
+               //help
+                break;
+            case R.id.action_refresh:
+               //refresh
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

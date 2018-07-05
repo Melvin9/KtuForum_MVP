@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -22,18 +24,24 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ktu.dev.melvin.ktu_forum.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
-public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHolder  > {
+public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHolder>{
     private List<public_data> listitems;
+    private List<public_data> listitemsfiltered;
     private Context context;
 
     public_adapter(List<public_data> listitems, Context context) {
-        this.listitems = listitems;
         this.context = context;
+        this.listitemsfiltered = listitems;
+        this.listitems = new ArrayList<public_data>();
+        this.listitems.addAll(listitemsfiltered);
     }
+
 
     @NonNull
     @Override
@@ -44,7 +52,7 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull public_adapter.ViewHolder holder, int position) {
-        public_data list=listitems.get(position);
+        public_data list=listitemsfiltered.get(position);
         holder.qn_user.setText(String.format("%s Asked a Question:", list.getQn_id()));
         holder.qn.setText(list.getQuestion());
         holder.ans.setText(list.getAnswer());
@@ -58,8 +66,25 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return listitems.size();
+        return listitemsfiltered.size();
     }
+
+    // Filter Class
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        listitemsfiltered.clear();
+        if (charText.length() == 0) {
+            listitemsfiltered.addAll(listitems);
+        } else {
+            for (public_data wp : listitems) {
+                if (wp.getAnswer().toLowerCase(Locale.getDefault()).contains(charText)||wp.getQuestion().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    listitemsfiltered.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView qn_user, qn, answer_user,ans;

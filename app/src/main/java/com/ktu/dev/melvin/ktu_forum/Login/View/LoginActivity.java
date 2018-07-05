@@ -119,7 +119,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         alert.show();
 
     }
-
     @Override
     public void showDialog() {
         progressDialog = new ProgressDialog(LoginActivity.this);
@@ -128,7 +127,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         progressDialog.setTitle("Progress Dialog");
         progressDialog.show();
     }
-
     @Override
     public void hideDialog() {
         progressDialog.dismiss();
