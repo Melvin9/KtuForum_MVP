@@ -7,14 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,9 +26,11 @@ import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPrivateFrag
 import com.ktu.dev.melvin.ktu_forum.MainScreen.Ask_Questions.View.AskPublicFragment;
 import com.ktu.dev.melvin.ktu_forum.MainScreen.View_Answer.View.ViewAnswerFragment;
 import com.ktu.dev.melvin.ktu_forum.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +39,7 @@ public class BookmarkFragment extends Fragment {
     private RecyclerView recyclerView;
     private BookmarkAdapter adapter;
     private List<BookmarkData> bookmarkData;
+    public static TextView textView;
     public BookmarkFragment() {
         // Required empty public constructor
     }
@@ -50,6 +54,7 @@ public class BookmarkFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), 1);
         bookmarkData=new ArrayList<>();
         recyclerView=view.findViewById(R.id.recycler1);
+        textView=view.findViewById(R.id.teacher_hide);
         recyclerView.setHasFixedSize(true);
         loadFromServer(view.getContext());
         setHasOptionsMenu(true);

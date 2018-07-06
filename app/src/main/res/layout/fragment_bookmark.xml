@@ -14,10 +14,25 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/bg_for_fragments"
         android:contentDescription="@string/background_image" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teacher_hide"
+            android:layout_gravity="center"
+            android:alpha="0.85"
+            android:text="@string/no_questions_asked_to_teachers"
+            android:textSize="12sp"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
 </RelativeLayout>
