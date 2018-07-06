@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
         android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_descriptor">
+        >
         <activity
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
@@ -23,12 +23,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="java-lang-programming"
-                    android:scheme="android-app-google-plus-demo" />
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

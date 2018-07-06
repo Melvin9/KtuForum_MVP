@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:alpha="0.15"
+        android:alpha="0.5"
         app:srcCompat="@drawable/bg_for_fragments"
         android:contentDescription="@string/background_image" />
     <LinearLayout
