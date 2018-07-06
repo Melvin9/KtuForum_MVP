@@ -42,7 +42,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginPresenter.msignup(userid.getText().toString().trim(),password.getText().toString().trim());
+                if(userid.getText().toString().isEmpty()||password.getText().toString().isEmpty()){
+                    Toast.makeText(LoginActivity.this,"Provide UserId And Password\nThen click SignUP",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    loginPresenter.msignup(userid.getText().toString().trim(),password.getText().toString().trim());
+                }
             }
         });
         login.setOnClickListener(new View.OnClickListener() {

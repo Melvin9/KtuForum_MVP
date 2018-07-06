@@ -31,7 +31,6 @@
 
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
-            android:parentActivityName=".Login.View.LoginActivity"
             android:name=".MainScreen.MainActivity"
             tools:ignore="InnerclassSeparator" />
         <meta-data

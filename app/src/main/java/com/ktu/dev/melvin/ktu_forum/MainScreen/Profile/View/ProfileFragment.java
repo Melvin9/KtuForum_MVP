@@ -126,9 +126,6 @@ public class ProfileFragment extends Fragment {
             case R.id.action_help:
                 //help
                 break;
-            case R.id.action_refresh:
-                //refresh
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

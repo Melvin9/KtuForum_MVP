@@ -12,10 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,7 +37,7 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
     public_adapter(List<public_data> listitems, Context context) {
         this.context = context;
         this.listitemsfiltered = listitems;
-        this.listitems = new ArrayList<public_data>();
+        this.listitems = new ArrayList<>();
         this.listitems.addAll(listitemsfiltered);
     }
 
@@ -84,8 +83,6 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
         }
         notifyDataSetChanged();
     }
-
-
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView qn_user, qn, answer_user,ans;
         public_data feed;
@@ -136,6 +133,8 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
                                     public void onResponse(String response) {
                                         progressDialog.dismiss();
                                         Toast.makeText(itemView.getContext(),"Successfully Posted",Toast.LENGTH_SHORT).show();
+                                        answer_user.setText(String.format("%sAnswered:", ViewAnswerFragment.user_id));
+                                        ans.setText(answer);
 
                                     }
                                 }, new Response.ErrorListener() {
