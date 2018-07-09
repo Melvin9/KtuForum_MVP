@@ -17,6 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenter;
 import com.ktu.dev.melvin.ktu_forum.Login.Presenter.LoginPresenterImpl;
 import com.ktu.dev.melvin.ktu_forum.MainScreen.MainActivity;
@@ -29,11 +32,18 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     Button login, signup;
     EditText userid, password;
     LoginPresenter loginPresenter;
+    SessionManager session;
     private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        MobileAds.initialize(this, "ca-app-pub-5841415504299472~5721239352");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        // Session Manager
+        session = new SessionManager(getApplicationContext());
         userid = findViewById(R.id.username);
         password = findViewById(R.id.pass);
         login = findViewById(R.id.login);
@@ -60,11 +70,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void success() {
+
         Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
         ViewAnswerFragment.user_id=userid.getText().toString();
         try {
+            session.createLoginSession(userid.getText().toString());
             Intent i1 = new Intent(LoginActivity.this, MainActivity.class);
-            i1.putExtra("us", userid.getText().toString());
             startActivity(i1);
         } catch (Exception e) {
             Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();

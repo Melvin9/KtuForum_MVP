@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,7 +36,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ViewAnswerFragment extends Fragment{
     public static String user_id;
@@ -62,9 +62,6 @@ public class ViewAnswerFragment extends Fragment{
         data_main=new ArrayList<>();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        Bundle bundle = (Objects.requireNonNull(getActivity())).getIntent().getExtras();
-        assert bundle != null;
-        user_id=bundle.getString("us");
         loadFromServer(view.getContext());
         return view;
     }

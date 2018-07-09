@@ -2,21 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-    <item android:title="@string/view_questions"
-        android:color="#fff"
-        android:icon="@mipmap/ic_book_black_24dp"
+    <item
         android:id="@+id/view"
-        />
+        android:color="#000"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/view_questions" />
 
-    <item android:title="@string/your_questions"
-        android:color="#fff"
-        android:icon="@drawable/ic_bookmark"
+    <item
         android:id="@+id/bookmark"
-        />
-    <item android:title="@string/profile"
-        android:color="#fff"
-        android:icon="@mipmap/ic_perm_identity_black_18dp"
+        android:color="#000"
+        android:icon="@android:drawable/ic_menu_set_as"
+        android:title="@string/your_questions" />
+    <item
         android:id="@+id/profile"
-        />
+        android:color="#000"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="@string/profile" />
+    <item
+        android:id="@+id/logout"
+        android:color="#000"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:title="@string/logout" />
 </menu>
