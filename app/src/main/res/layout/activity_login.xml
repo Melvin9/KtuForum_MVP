@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:drawableStart="@mipmap/ic_perm_identity_black_18dp"
                     android:ems="10"
-                    android:hint="@string/username"
+                    android:hint="@string/userid"
                     android:textColor="@android:color/black"
                     android:inputType="textPersonName"
                     android:drawableLeft="@mipmap/ic_perm_identity_black_18dp"

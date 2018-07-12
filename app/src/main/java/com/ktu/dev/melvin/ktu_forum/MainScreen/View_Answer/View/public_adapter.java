@@ -133,7 +133,7 @@ public class public_adapter extends RecyclerView.Adapter<public_adapter.ViewHold
                                     public void onResponse(String response) {
                                         progressDialog.dismiss();
                                         Toast.makeText(itemView.getContext(),"Successfully Posted",Toast.LENGTH_SHORT).show();
-                                        answer_user.setText(String.format("%sAnswered:", ViewAnswerFragment.user_id));
+                                        answer_user.setText(String.format("%s Answered:", ViewAnswerFragment.user_id));
                                         ans.setText(answer);
 
                                     }

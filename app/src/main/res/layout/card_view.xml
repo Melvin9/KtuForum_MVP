@@ -15,8 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,14 +54,15 @@
                 android:textSize="14sp"
                 tools:ignore="RtlHardcoded" />
 
-            <TextView
+            <MultiAutoCompleteTextView
                 android:id="@+id/answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="@string/answer"
+                android:layout_gravity="fill"
                 android:textSize="15sp"
-                tools:ignore="RtlHardcoded" />
+                tools:ignore="LabelFor,RtlHardcoded" />
 
         </LinearLayout>
 
