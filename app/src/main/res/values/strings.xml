@@ -49,5 +49,6 @@
     <string name="no_questions_asked_to_teachers">No Questions Asked To Teachers</string>
     <string name="logout">LogOut</string>
     <string name="userid">UserID</string>
+    <string name="pass">Password</string>
 
 </resources>
